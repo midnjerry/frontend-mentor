@@ -12,12 +12,119 @@
       href="./assets/images/favicon-32x32.png"
     />
 
-    <link href="https://fonts.google.com/specimen/Work+Sans" type="stylesheet" />
+    <link
+      href="https://fonts.google.com/specimen/Work+Sans"
+      type="stylesheet"
+    />
 
     <title>Frontend Mentor | FAQ accordion</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+      
+      * {
+        margin: 0;
+        padding: 0;
+        /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+        box-sizing: border-box;
+        font-family: "Work Sans" sans-serif;
+      }
+
+      body {
+        background-color: #f8eeff;
+        font-family: "Work Sans";
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto min-content;
+        grid-template-areas:
+          "main"
+          "footer";
+      }
+
+      .background-banner {
+        width: 100%;
+        height: 18rem;
+        max-height: 18rem;
+        background-image: url("./assets/images/background-pattern-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: left;
+        background-color: #301534;
+      }
+
+      #main {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        grid-area: main;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #panel {
+        display: flex;
+        padding: 40px;
+        background-color: white;
+        width: 600px;
+        flex-direction: column;
+        border-radius: 16px;
+        box-shadow: 0px 32px 48px 0 rgba(80, 0, 118, 0.1);
+      }
+
+      #panel-header {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 16px;
+        font-size: 56px;
+        color: hsl(292, 42%, 14%);
+      }
+
+      #panel-header img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .border-top {
+        border-top: #f8eeff 1px solid;
+        padding-top: 24px;
+      }
+
+      .panel-question {
+        color: hsl(292, 42%, 14%);
+        font-size: 18px;
+      }
+
+      .panel-text {
+        padding-bottom: 24px;
+        color: hsl(292, 16%, 49%);
+        font-size: 16px;
+        line-height: 150%;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 24px;
+      }
+
+      .row:hover {
+        cursor: pointer;
+        color: hsl(275, 100%, 97%);
+      }
+
+      footer {
+        grid-area: footer;        
+      }
+
       .attribution {
         font-size: 11px;
         text-align: center;
@@ -25,70 +132,71 @@
       .attribution a {
         color: hsl(228, 45%, 44%);
       }
-
-      body {
-        background-color: #301534;
-        background-image: url("./assets/images/background-pattern-desktop.svg");
-        background-position:  top left;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-color: #f8eeff;
-        font-family: "Work Sans";
-      }
-      
-      #card-header {
-        display: flex;
-        flex-direction: row;
-        gap: 14px;
-        align-items: center;
-      }
-
-      #card-header img {
-        width: 40px;
-        height: 40px;
-      }
-
     </style>
   </head>
   <body>
-    <section>
-      <header id="card-header">
-        <img src="./assets/images/icon-star.svg"/>
-        <h1>FAQs</h1>
-      </header>
-
-      What is Frontend Mentor, and how will it help me?
-      <p class="panel">
-        Frontend Mentor offers realistic coding challenges to help developers
-        improve their frontend coding skills with projects in HTML, CSS, and
-        JavaScript. It's suitable for all levels and ideal for portfolio
-        building.
-      </p>
-      Is Frontend Mentor free?
-      <p class="panel">
-        Yes, Frontend Mentor offers both free and premium coding challenges,
-        with the free option providing access to a range of projects suitable
-        for all skill levels.
-      </p>
-      Can I use Frontend Mentor projects in my portfolio?
-      <p class="panel">
-        Yes, you can use projects completed on Frontend Mentor in your
-        portfolio. It's an excellent way to showcase your skills to potential
-        employers!
-      </p>
-      How can I get help if I'm stuck on a Frontend Mentor challenge?
-      <p class="panel">
-        The best place to get help is inside Frontend Mentor's Discord
-        community. There's a help channel where you can ask questions and seek
-        support from other community members.
-      </p>
-    </section>
-
-    <div class="attribution">
+    <div class="background-banner"></div>
+    <main id="main">
+      <section id="panel">
+        <header id="panel-header">
+          <img src="./assets/images/icon-star.svg" />
+          <h1>FAQs</h1>
+        </header>
+        <div class="row">
+          <h2 class="panel-question">
+            What is Frontend Mentor, and how will it help me?
+          </h2>
+          <img src="./assets/images/icon-plus.svg" />
+        </div>
+        <p class="panel-text">
+          Frontend Mentor offers realistic coding challenges to help developers
+          improve their frontend coding skills with projects in HTML, CSS, and
+          JavaScript. It's suitable for all levels and ideal for portfolio
+          building.
+        </p>
+        <div class="row border-top">
+          <h2 class="panel-question">Is Frontend Mentor free?</h2>
+          <img src="./assets/images/icon-plus.svg" />
+        </div>
+        <p class="panel-text">
+          Yes, Frontend Mentor offers both free and premium coding challenges,
+          with the free option providing access to a range of projects suitable
+          for all skill levels.
+        </p>
+        <div class="row border-top">
+          <h2 class="panel-question">
+            Can I use Frontend Mentor projects in my portfolio?
+          </h2>
+          <img src="./assets/images/icon-plus.svg" />
+        </div>
+        <p class="panel-text">
+          Yes, you can use projects completed on Frontend Mentor in your
+          portfolio. It's an excellent way to showcase your skills to potential
+          employers!
+        </p>
+        <div class="row border-top">
+          <h2 class="panel-question">
+            How can I get help if I'm stuck on a Frontend Mentor challenge?
+          </h2>
+          <img src="./assets/images/icon-plus.svg" />
+        </div>
+        <p class="panel-text">
+          The best place to get help is inside Frontend Mentor's Discord
+          community. There's a help channel where you can ask questions and seek
+          support from other community members.
+        </p>
+      </section>
+    </main>
+    <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+      >. Coded by
+      <a
+        href="https://www.linkedin.com/in/jerry-balderas-b74b7495"
+        target="_blank"
+        >Jerry Balderas</a
+      >.
+    </footer>
   </body>
 </html>
